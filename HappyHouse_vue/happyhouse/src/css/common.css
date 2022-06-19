@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "TmoneyRoundWind";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-Regular.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-Regular.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-Regular.ttf")
+      format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "TmoneyRoundWind";
+  font-weight: 800;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-ExtraBold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-ExtraBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-ExtraBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-ExtraBold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/tmoney/TmoneyRoundWind-ExtraBold.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ROKAFSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ROKAFSlabSerifMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "ROKAFSlabSerifMedium";
+}
+
+* h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "ROKAFSlabSerifMedium";
+}
+
+.container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* 표 Style */
+.styled-table {
+  width: 100%;
+  box-shadow: 10px 0 15px rgba(173, 171, 173, 0.39);
+  text-align: center;
+}
+
+.styled-table thead tr {
+  color: rgb(255, 255, 255);
+  background-color: #0c0b0ce8;
+  font-size: 1.3em;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #867c86;
+  font-size: 1.1em;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #ffdb0d11;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: none;
+}
+
+/* .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  } */
+
+/* 상세 페이지 */
+.styled-detail {
+  font-size: 20px;
+}

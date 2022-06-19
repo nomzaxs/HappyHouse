@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- interestMapper에 선언된 함수와 이름이 일치하는 id 값 에서 sql문 수행 -->
+<mapper namespace="com.ssafy.happyhouse.mapper.InterestMapper"> 
+    
+   
+    <!-- 해당 글에 달린 interest 리스트 불러오기 -->
+    <select id = "selectInterestsByUser" resultType = "interest">
+        select *
+        from interest
+        where userid = #{userid}
+        order by interestno desc
+    </select>
+
+    <!-- 등록 -->
+    <insert id = "insertInterest" parameterType = "interest">
+        insert into interest(userid, dongcode, aptName)
+        values (#{userid}, #{dongcode}, #{aptName})
+    </insert>
+
+    <!-- 삭제 -->
+    <delete id = "deleteInterest" parameterType = "int">
+        delete from interest
+        where interestno = #{interestno}
+    </delete>
+
+</mapper>

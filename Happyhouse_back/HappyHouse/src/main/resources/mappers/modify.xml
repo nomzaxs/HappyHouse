@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.mapper.UserModifyMapper">
+
+	<update id="update" parameterType="UserDto">
+        update users
+        <trim prefix="set" suffixOverrides=",">
+        password = #{password},
+        </trim>
+        where email = #{email}
+    </update>
+    
+    <select id="list" resultType="UserDto">
+		select *
+		from users
+	</select>
+	
+	<!-- 유저 삭제 -->
+    <delete id = "deleteUser" parameterType = "String">
+    	delete from refreshtoken
+    	where user_id = (select userid
+    		from users
+    		where email = #{email});
+    		
+    	delete from user_roles
+    	where userid = (select userid
+    		from users
+    		where email = #{email});
+    		
+        delete from users
+        where email = #{email};
+    </delete>
+</mapper>

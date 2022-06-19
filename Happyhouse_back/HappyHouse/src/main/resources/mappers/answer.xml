@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- answerMapper에 선언된 함수와 이름이 일치하는 id 값 에서 sql문 수행 -->
+<mapper namespace="com.ssafy.happyhouse.mapper.AnswerMapper"> 
+    
+   
+    <!-- 해당 글에 달린 Answer 리스트 불러오기 -->
+    <select id = "selectAnswersByArticle" resultType = "answer">
+        select *
+        from comment
+        where articleno = #{articleno}
+        order by regtime desc
+    </select>
+
+    <!-- 답글 등록 -->
+    <insert id = "insertAnswer" parameterType = "answer">
+        insert into comment(articleno, userid, content)
+        values (#{articleno}, #{userid}, #{content})
+    </insert>
+
+    <!-- 답글 수정 -->
+    <update id = "updateAnswer" parameterType = "answer">
+        update comment
+        set content = #{content}
+        where commentno=#{commentno}
+    </update>
+
+    <!-- 답글 삭제 -->
+    <delete id = "deleteAnswer" parameterType = "int">
+        delete from comment
+        where commentno = #{commentno}
+    </delete>
+
+</mapper>

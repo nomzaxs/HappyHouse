@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.happyhouse.mapper.HouseinfoMapper">
+	<!-- 동코드에 따른 아파트 리스트 불러오기 -->
+	<select id="selectAptsByDongCode" resultType="houseinfo">
+		select *
+		from houseinfo
+		where dongcode = #{dongcode}
+	</select>
+
+	<!-- 아파트 이름에 따른 아파트 리스트 불러오기 -->
+	<select id="selectAptsByName" resultType="houseinfo">
+		select *
+		from houseinfo
+		where apartmentName like concat('%',#{aptname}, '%')
+	</select>
+</mapper>

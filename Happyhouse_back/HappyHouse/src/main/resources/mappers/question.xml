@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- QuestionMapper에 선언된 함수와 이름이 일치하는 id 값 에서 sql문 수행 -->
+<mapper namespace="com.ssafy.happyhouse.mapper.QuestionMapper"> 
+    
+    <!-- 전체 QnA 리스트 불러오기-->
+    <select id = "selectQuestions" resultType = "question">
+        select *
+        from qna 
+        order by regtime desc
+    </select>
+
+    <!-- 작성자가 작성한 QnA 리스트 불러오기 -->
+    <select id = "selectQuestionsByUser" resultType = "question">
+        select articleno, userid, `subject`, content, hit, regtime
+        from qna 
+        where userid like concat('%', #{userid}, '%')
+        order by regtime desc
+    </select>
+
+    <!-- 제목 키워드를 포함한 QnA 리스트 불러오기 -->
+    <select id = "selectQuestionsBySubject" resultType = "question">
+        select articleno, userid, `subject`, content, hit, regtime
+        from qna 
+        where `subject` like concat('%', #{userid}, '%')
+        order by regtime desc 
+    </select>
+
+    <!-- 내용 키워드를 포함한 QnA 리스트 불러오기 -->
+    <select id = "selectQuestionsByContent" resultType = "question">
+        select articleno, userid, `subject`, content, hit, regtime
+        from qna 
+        where content like concat('%', #{userid}, '%')
+        order by regtime desc
+    </select>
+
+     <!-- 게시글 상세 조회 -->
+    <select id = "selectQuestion" resultType="question">
+        select articleno, userid, `subject`, content, hit, regtime
+        from qna
+        where articleno = #{articleno}
+    </select>
+
+    <!-- 조회수 증가 -->
+    <update id = "updateHit" parameterType = "int">
+        update qna 
+        set hit = hit + 1
+        where articleno = #{articleno}
+    </update>
+
+    <!-- 게시글 등록 -->
+    <insert id = "insertQuestion" parameterType = "question">
+        insert into qna(`subject`, userid, content)
+        values (#{subject}, #{userid}, #{content})
+    </insert>
+
+    <!-- 게시글 수정 -->
+    <update id = "updateQuestion" parameterType = "question">
+        update qna
+        set `subject` = #{subject},
+            content = #{content}
+        where articleno = #{articleno}
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id = "deleteQuestion" parameterType = "int">
+        delete from qna
+        where articleno = #{articleno}
+    </delete>
+
+</mapper>
